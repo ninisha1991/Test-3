@@ -22,4 +22,9 @@ test:
 
 production:
   <<: *default
+  url: <%= ENV["DATABASE_URL"] %>
+  host: <%= ENV.fetch('DB_HOST', 'localhost') %>
+  username: <%= ENV['DB_USER'] %>
+  adapter: postgresql
+  encoding: utf-8
   database: db/production.sqlite3
